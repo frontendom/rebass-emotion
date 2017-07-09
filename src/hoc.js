@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'emotion/react'
 import {
   space,
   width,
@@ -46,12 +46,9 @@ const propTypes = {
 }
 
 const hoc = Component => {
-  const Base = styled(Component)([],
-    space,
-    width,
-    fontSize,
-    color
-  )
+  const Base = styled(Component)`
+    composes: ${space} ${width} ${fontSize} ${color};
+  `
 
   Base.propTypes = propTypes
 

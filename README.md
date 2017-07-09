@@ -1,17 +1,15 @@
-# Rebass
+# Rebass Emotion
 
-Functional React UI component library, built with [styled-components](https://www.styled-components.com)
+Functional React UI component library, built with [emotion](https://github.com/tkh44/emotion), forked from rebass
 
-[![Build Status](https://travis-ci.org/jxnblk/rebass.svg?branch=master)](https://travis-ci.org/jxnblk/rebass)
-
-http://jxnblk.com/rebass
+[![Build Status](https://travis-ci.org/mitchellhamilton/rebass-emotion.svg?branch=master)](https://travis-ci.org/mitchellhamilton/rebass-emotion)
 
 ```sh
-npm i rebass
+npm i rebass-emotion
 ```
 
 Rebass is a library of highly-composable, primitive UI components for React,
-built with styled-components to keep styles isolated and reduce the need to write custom CSS in your application.
+built with emotion to keep styles isolated and reduce the need to write custom CSS in your application.
 Based upon a configurable design system,
 Rebass‘s props API makes building consistent, responsive web apps simpler and faster.
 
@@ -20,7 +18,7 @@ Rebass‘s props API makes building consistent, responsive web apps simpler and 
 
 ```jsx
 import React from 'react'
-import { Provider, Heading, Button } from 'rebass'
+import { Provider, Heading, Button } from 'rebass-emotion'
 
 const App = props => (
   <Provider>
@@ -32,7 +30,7 @@ const App = props => (
 
 ## Features
 
-- Style encapsulation with styled-components
+- Style encapsulation with emotion
 - No external CSS dependencies
 - Configurable theming
 - Design-system based consistency
@@ -212,7 +210,7 @@ This is useful for ensuring semantic markup, while keeping styles decoupled.
 
 ### `<Provider />`
 
-The `<Provider />` component is a wrapper around styled-components' [ThemeProvider](https://www.styled-components.com/docs/advanced#theming).
+The `<Provider />` component is a wrapper around emotions/theming's [ThemeProvider](https://github.com/iamstarkov/theming#themeprovider).
 It also provides global styles that remove the body tag's margin, sets all elements to `box-sizing: border-box`,
 and sets a default font-family value based on `theme.font`.
 
@@ -220,7 +218,7 @@ The Provider should be wrapped around a top-level component to ensure Rebass wor
 
 ```jsx
 import React from 'react'
-import { Provider } from 'rebass'
+import { Provider } from 'rebass-emotion'
 import Page from './Page'
 
 const App = props => (
@@ -293,7 +291,7 @@ For convenience, the [Grid Styled](http://jxnblk.com/grid-styled) `<Flex />` and
 to handle most page layout needs.
 
 ```jsx
-import { Flex, Box } from 'rebass'
+import { Flex, Box } from 'rebass-emotion'
 ```
 
 ## Configuration
@@ -304,7 +302,7 @@ all of which can be configured with the `<Provider />` component.
 
 ```jsx
 import React from 'react'
-import { Provider } from 'rebass'
+import { Provider } from 'rebass-emotion'
 
 const theme = {
   breakpoints: [
@@ -339,11 +337,11 @@ const App = props => (
 
 ## Customizing Components
 
-Rebass components can be completely customized using styled-components.
+Rebass components can be completely customized using emotion.
 
 ```jsx
-import styled from 'styled-components'
-import { Button } from 'rebass'
+import styled from 'emotion'
+import { Button } from 'rebass-emotion'
 
 const CustomButton = styled(Button)`
   border: 1px solid rgba(0, 0, 0, .25);
@@ -354,12 +352,14 @@ const CustomButton = styled(Button)`
 
 ## Server-Side Rendering
 
-Rebass uses styled-components for styling.
-The styled-components documentation explains how to handle
-[Server-Side Rendering](https://www.styled-components.com/docs/advanced#server-side-rendering).
+Rebass uses emotion for styling.
+The emotion documentation explains how to handle
+[Server-Side Rendering](https://github.com/tkh44/emotion#server-side-rendering).
 
 ### Related
 
+- [emotion](https://github.com/tkh44/emotion)
+- [rebass](https://github.com/jxnblk/rebass)
 - [styled-system](https://github.com/jxnblk/styled-system)
 - [grid-styled](https://github.com/jxnblk/grid-styled)
 - [palx](https://github.com/jxnblk/palx)

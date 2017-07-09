@@ -1,8 +1,9 @@
 {
-  "name": "rebass",
-  "version": "1.0.0-4",
-  "description": "Functional React UI component library, built with styled-components",
+  "name": "rebass-emotion",
+  "version": "1.0.0",
+  "description": "Functional React UI component library, built with emotion, forked from rebass",
   "main": "dist/index.js",
+  "files": ["dist", "src", "stories", "docs"],
   "scripts": {
     "prepublish": "babel src -d dist",
     "start": "start-storybook -p 8000 -c stories",
@@ -19,13 +20,13 @@
     "stateless",
     "functional"
   ],
-  "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
-    "grid-styled": "^2.0.0-8",
+    "emotion": "^5.2.0",
+    "grid-emotion": "^1.0.1",
     "palx": "^1.0.2",
     "prop-types": "^15.5.10",
-    "styled-components": "^2.1.0",
+    "recompose": "^0.23.5",
     "styled-system": "^1.0.0-7"
   },
   "devDependencies": {
@@ -46,12 +47,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jxnblk/rebass.git"
+    "url": "https://github.com/mitchellhamilton/rebass-emotion.git"
   },
   "bugs": {
-    "url": "https://github.com/jxnblk/rebass/issues"
+    "url": "https://github.com/mitchellhamilton/rebass-emotion/issues"
   },
-  "homepage": "https://github.com/jxnblk/rebass",
+  "homepage": "https://github.com/mitchellhamilton/rebass-emotion",
   "ava": {
     "require": [
       "babel-register"

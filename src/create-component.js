@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled from 'emotion/react'
+import { withProps } from 'recompose'
 import Tag from './Tag'
 import hoc from './hoc'
 
@@ -15,7 +16,9 @@ const createComponent = (config, components = {}) => {
   const _tag = components[tag] || tag
 
   const Base = hoc(Tag(_tag))
-  const Component = styled(Base).attrs(props)([], style)
+  const Component = withProps(props)(styled(Base)`
+    composes: ${style}
+  `)
 
   Component.propTypes = propTypes
   Component.defaultProps = defaultProps
