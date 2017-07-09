@@ -1,6 +1,6 @@
 {
   "name": "rebass-emotion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Functional React UI component library, built with emotion, forked from rebass",
   "main": "dist/index.js",
   "files": ["dist", "src", "stories", "docs"],
@@ -23,11 +23,11 @@
   "license": "MIT",
   "dependencies": {
     "emotion": "^5.2.0",
-    "grid-emotion": "^1.0.1",
+    "grid-emotion": "^1.0.2",
     "palx": "^1.0.2",
     "prop-types": "^15.5.10",
     "recompose": "^0.23.5",
-    "styled-system": "^1.0.0-7"
+    "styled-system": "^1.0.0-8"
   },
   "devDependencies": {
     "@storybook/addon-options": "^3.1.6",
