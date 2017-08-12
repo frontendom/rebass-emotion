@@ -10,7 +10,6 @@ import {
   Provider,
   hoc,
   theme,
-  Tag,
   createLibrary,
   createComponent,
   util
@@ -36,7 +35,7 @@ test('Provider renders', t => {
 })
 
 test('hoc returns a component', t => {
-  const Comp = hoc('div')
+  const Comp = hoc()('div')
   const json = render(<Comp />).toJSON()
   t.is(typeof Comp, 'function')
   t.true(isElement(<Comp />))
@@ -98,24 +97,19 @@ test('util.color returns a color from the theme', t => {
   const cx = util.color({ theme })
   const a = cx()
   const b = cx('green')
-  const c = cx('red', 3)
+  const c = cx('red3')
   const d = cx('pink3')
-  const e = cx('teal2', 5)
+  const e = cx('teal5')
   t.is(a, theme.colors.blue)
   t.is(b, theme.colors.green)
   t.is(c, theme.colors.red3)
-  t.is(d, theme.colors.pink)
+  t.is(d, theme.colors.pink3)
   t.is(e, theme.colors.teal5)
 })
 
 test('util.darken returns and rgba value', t => {
   const a = util.darken(1/2)
   t.is(a, 'rgba(0, 0, 0, 0.5)')
-})
-
-test('util.baseKey gets the base key string', t => {
-  const a = util.baseKey('blue2')
-  t.is(a, 'blue')
 })
 
 test('util.caps returns a caps style object', t => {
@@ -132,10 +126,10 @@ test('util.align returns text-align values', t => {
   const c = util.align({ right: true })
   const d = util.align({ justify: true })
   const e = util.align({})
-  t.is(a, 'left')
-  t.is(b, 'center')
-  t.is(c, 'right')
-  t.is(d, 'justify')
-  t.is(e, null)
+  t.deepEqual(a, { textAlign: 'left' })
+  t.deepEqual(b, { textAlign: 'center' })
+  t.deepEqual(c, { textAlign: 'right' })
+  t.deepEqual(d, { textAlign: 'justify' })
+  t.deepEqual(e, null)
 })
 

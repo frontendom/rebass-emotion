@@ -1,5 +1,6 @@
 import React from 'react'
-import styled, { ThemeProvider } from 'emotion/react'
+import styled from 'emotion/react'
+import { ThemeProvider, withTheme } from 'theming'
 import {
   shape,
   arrayOf,
@@ -11,9 +12,9 @@ import {
 } from 'prop-types'
 import theme from './theme'
 
-const Base = styled.div`
-  fontFamily: ${(props) => props.theme.font}
-`
+const Base = withTheme(styled.div`
+  fontFamily: ${(props) => props.theme.font || theme.font};
+`)
 
 const Provider = props => (
   <ThemeProvider theme={Object.assign({}, theme, props.theme)}>

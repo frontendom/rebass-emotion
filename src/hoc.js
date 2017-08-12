@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'emotion/react'
+import { withTheme } from 'theming'
+import { compose, withProps } from 'recompose'
 import {
   space,
   width,
@@ -12,6 +14,8 @@ import {
   number,
   string
 } from 'prop-types'
+import tag from 'tag-hoc'
+import styleProps from './style-props'
 
 const prop = oneOfType([
   number,
@@ -45,14 +49,29 @@ const propTypes = {
   py: prop,
 }
 
-const hoc = Component => {
+const withStyle = (style, props) => Component => {
   const Base = styled(Component)`
-    composes: ${space} ${width} ${fontSize} ${color};
+    ${space};
+    ${width};
+    ${fontSize};
+    ${color};
   `
-
   Base.propTypes = propTypes
 
-  return Base
+  // Clean this up after styled-components removes whitelisting
+  const Comp = withProps(props)(styled(Base)`
+  ${style};
+`)
+
+  return Comp
 }
+
+const Tag = tag(styleProps)
+
+const hoc = (style, props) => compose(
+  withTheme,
+  withStyle(style, props),
+  Tag
+)
 
 export default hoc

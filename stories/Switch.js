@@ -1,16 +1,10 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { createProvider } from 'funcup'
+import { createProvider } from 'refunk'
 import { Switch } from '../src'
 
 storiesOf('Switch', module)
   .add('Default', () => (
-    <Switch />
-  ))
-  .add('Checked', () => (
-    <Switch checked />
-  ))
-  .add('Live', () => (
     <Live />
   ))
 

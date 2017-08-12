@@ -30,9 +30,11 @@ const App = props => (
 
 ## Features
 
+- Functional stateless UI components
 - Style encapsulation with emotion
 - No external CSS dependencies
 - Configurable theming
+- Extensible base components
 - Design-system based consistency
 - Built for responsive web design
 - Reduces the need to write custom CSS
@@ -210,9 +212,8 @@ This is useful for ensuring semantic markup, while keeping styles decoupled.
 
 ### `<Provider />`
 
-The `<Provider />` component is a wrapper around emotions/theming's [ThemeProvider](https://github.com/iamstarkov/theming#themeprovider).
-It also provides global styles that remove the body tag's margin, sets all elements to `box-sizing: border-box`,
-and sets a default font-family value based on `theme.font`.
+The `<Provider />` component is a wrapper around theming's [ThemeProvider](https://github.com/iamstarkov/theming#themeprovider).
+It also sets a default font-family value based on `theme.font`.
 
 The Provider should be wrapped around a top-level component to ensure Rebass works as expected.
 
@@ -226,6 +227,18 @@ const App = props => (
     <Page />
   </Provider>
 )
+```
+
+You'll likely want to add additional global styles that set `box-sizing: border-box` in your application.
+This can be done with styled-components [`injectGlobal`](https://www.styled-components.com/docs/api#injectglobal):
+
+```jsx
+import { injectGlobal } from 'styled-components'
+
+injectGlobal`
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+`
 ```
 
 ### UI Components
@@ -257,6 +270,10 @@ accepts several typographic style props.
 - `bottom` (boolean) border-bottom
 - `left` (boolean) border-left
 - `color` (string) sets *only* the border color
+
+### `<Container />`
+
+- `maxWidth` (number) the maximum width of the container element
 
 ### `<NavLink />`, `<TabItem />`, `<DotButton />`
 

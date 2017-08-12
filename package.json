@@ -1,9 +1,14 @@
 {
   "name": "rebass-emotion",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Functional React UI component library, built with emotion, forked from rebass",
   "main": "dist/index.js",
-  "files": ["dist", "src", "stories", "docs"],
+  "files": [
+    "dist",
+    "src",
+    "stories",
+    "docs"
+  ],
   "scripts": {
     "prepublish": "babel src -d dist",
     "start": "start-storybook -p 8000 -c stories",
@@ -22,12 +27,14 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "emotion": "^5.2.0",
-    "grid-emotion": "^1.0.2",
+    "emotion": "^7.0.13",
+    "grid-emotion": "^2.0.0",
     "palx": "^1.0.2",
     "prop-types": "^15.5.10",
-    "recompose": "^0.23.5",
-    "styled-system": "^1.0.0-8"
+    "recompose": "^0.24.0",
+    "styled-system": "^1.0.0-12",
+    "tag-hoc": "^1.0.0-0",
+    "theming": "^1.1.0"
   },
   "devDependencies": {
     "@storybook/addon-options": "^3.1.6",
@@ -38,12 +45,12 @@
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
-    "funcup": "^1.0.0-1",
     "nyc": "^11.0.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
-    "react-x-ray": "^1.0.0-2"
+    "react-x-ray": "^1.0.0-2",
+    "refunk": "^1.0.0-2"
   },
   "repository": {
     "type": "git",
@@ -64,6 +71,10 @@
       "test",
       "docs",
       "stories"
+    ],
+    "reporter": [
+      "lcov",
+      "html"
     ]
   }
 }
